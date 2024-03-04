@@ -39,7 +39,7 @@ const ListEmployeeComponent = () => {
         Add Employee
       </button>
 
-      <table className="table table-bordered table-striped">
+      <table className="table table-bordered table-striped table-rounded">
         <thead>
           <tr>
             <th>id</th>
@@ -72,6 +72,7 @@ const ListEmployeeComponent = () => {
                 >
                   Delete
                 </button>
+                
               </td>
             </tr>
           ))}
