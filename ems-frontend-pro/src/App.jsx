@@ -7,6 +7,8 @@ import HeaderComponent from "./Components/HeaderComponent";
 import FooterComponent from "./Components/FooterComponent";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AddEmployeeComponent from "./Components/AddEmployeeComponent";
+import Register from "./Components/Register";
+import Homepage from "./Components/Homepage";
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         <HeaderComponent />
         <Routes>
           {/* http://localhost:8080 */}
+          <Route path="/homepage" element={<Homepage />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/" element={<ListEmployeeComponent />} />
           <Route path="/employees" element={<ListEmployeeComponent />} />
           <Route path="/add-employee" element={<AddEmployeeComponent />} />
