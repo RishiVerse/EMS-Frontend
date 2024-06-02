@@ -9,19 +9,24 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AddEmployeeComponent from "./Components/AddEmployeeComponent";
 import Register from "./Components/Register";
 import Homepage from "./Components/Homepage";
+import SideBar from "./Components/SideBar";
+import EmployeeSearch from "./Components/EmployeeSearch";
 
 function App() {
   return (
     <div>
       <BrowserRouter>
         <HeaderComponent />
+
         <Routes>
           {/* http://localhost:8080 */}
+          <Route path="/" element={<Homepage />} />
           <Route path="/homepage" element={<Homepage />} />
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<ListEmployeeComponent />} />
           <Route path="/employees" element={<ListEmployeeComponent />} />
           <Route path="/add-employee" element={<AddEmployeeComponent />} />
+          <Route path="/employeesearch" element={<EmployeeSearch />} />
           <Route
             path="/update-employee/:id"
             element={<AddEmployeeComponent />}

@@ -16,7 +16,7 @@ function Login() {
                   placeholder="Enter email"
                 />
               </div>
-              <div class="form-group">
+              <div className="form-group">
                 <label for="exampleInputPassword1" className="form-label">
                   Password
                 </label>

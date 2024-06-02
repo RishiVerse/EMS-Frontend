@@ -32,7 +32,7 @@ function Register() {
                   placeholder="Enter email"
                 />
               </div>
-              <div class="form-group">
+              <div className="form-group">
                 <label for="exampleInputPassword1" className="form-label">
                   Password
                 </label>
@@ -43,7 +43,7 @@ function Register() {
                 />
               </div>
 
-              <button type="submit" class="btn btn-primary text-center">
+              <button type="submit" className="btn btn-primary text-center">
                 Submit
               </button>
             </form>

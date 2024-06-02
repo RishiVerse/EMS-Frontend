@@ -1,9 +1,17 @@
+import { useNavigate } from "react-router-dom";
+
 function Homepage() {
+  const navigation = useNavigate();
+
+  const manageEmployee = () => {
+    navigation("/employees");
+  };
+
   return (
     <>
-      <div className="container-fluid">
+      <div className="container-fluid bg-grey">
         <div className="row flex-grow-1">
-          <nav className="col-md-2 d-none d-md-block bg-light sidebar">
+          <nav className="col-md-2 d-none d-md-block bg-grey sidebar">
             <div className="sidebar-sticky">
               <ul className="nav flex-column">
                 <li className="nav-item">
@@ -12,7 +20,7 @@ function Homepage() {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">
+                  <a className="nav-link" href="#" onClick={manageEmployee}>
                     Manage Employee
                   </a>
                 </li>
@@ -35,7 +43,10 @@ function Homepage() {
             </div>
           </nav>
 
-          <main role="main" className="col-md-9 ml-sm-auto col-lg-10 px-4">
+          <main
+            role="main"
+            className="col-md-9 ml-sm-auto col-lg-10 px-4 bg-grey"
+          >
             <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
               <h1 className="h2">Dashboard</h1>
             </div>
@@ -71,7 +82,9 @@ function Homepage() {
                       Highest Salary : 23 Minimum Salary : 12 Average Salary :
                       15
                     </p>
-                    <a href="#" className="btn btn-primary"> Detail
+                    <a href="#" className="btn btn-primary">
+                      {" "}
+                      Detail
                     </a>
                   </div>
                 </div>
@@ -80,9 +93,7 @@ function Homepage() {
                 <div className="card card-with-padding">
                   <div className="card-body">
                     <h5 className="card-title">Roles and Responsibility</h5>
-                    <p className="card-text">
-                      Will come later
-                    </p>
+                    <p className="card-text">Will come later</p>
                     <a href="#" className="btn btn-primary">
                       Detail
                     </a>

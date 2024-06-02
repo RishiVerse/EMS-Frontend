@@ -50,32 +50,32 @@ const ListEmployeeComponent = () => {
           </tr>
         </thead>
         <tbody>
-          {employees.map((emp) => (
-            <tr key={emp.id}>
-              <td>{emp.id}</td>
-              <td>{emp.firstname}</td>
-              <td>{emp.lastname}</td>
-              <td>{emp.email}</td>
-              <td>
-                <button
-                  className="btn btn-primary text-center"
-                  onClick={() => updateEmployee(emp.id)}
-                >
-                  Update
-                </button>
+          {employees &&
+            employees.map((emp) => (
+              <tr key={emp.id}>
+                <td>{emp.id}</td>
+                <td>{emp.firstname}</td>
+                <td>{emp.lastname}</td>
+                <td>{emp.email}</td>
+                <td>
+                  <button
+                    className="btn btn-primary text-center"
+                    onClick={() => updateEmployee(emp.id)}
+                  >
+                    Update
+                  </button>
 
-                <span style={{ margin: "0 5px" }}></span>
+                  <span style={{ margin: "0 5px" }}></span>
 
-                <button
-                  className="btn btn-danger text-center"
-                  onClick={() => deleteEmployee(emp.id)}
-                >
-                  Delete
-                </button>
-                
-              </td>
-            </tr>
-          ))}
+                  <button
+                    className="btn btn-danger text-center"
+                    onClick={() => deleteEmployee(emp.id)}
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>

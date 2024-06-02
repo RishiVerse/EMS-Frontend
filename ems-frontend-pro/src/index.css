@@ -21,10 +21,11 @@
   padding-right: 0px !important;
   margin-left: 0px !important;
   margin-right: 0px !important;
+  background-color: grey;
 }
 
 .menu {
-  background-color: #f0f0f0;
+  background-color: grey;
   font-weight: bold; /* Change this to your desired background color */
 }
 
