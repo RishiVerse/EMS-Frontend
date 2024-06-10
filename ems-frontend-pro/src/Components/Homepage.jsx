@@ -11,7 +11,7 @@ function Homepage() {
     <>
       <div className="container-fluid bg-grey">
         <div className="row flex-grow-1">
-          <nav className="col-md-2 d-none d-md-block bg-grey sidebar">
+          {/* <nav className="col-md-2 d-none d-md-block bg-grey sidebar">
             <div className="sidebar-sticky">
               <ul className="nav flex-column">
                 <li className="nav-item">
@@ -41,7 +41,7 @@ function Homepage() {
                 </li>
               </ul>
             </div>
-          </nav>
+          </nav> */}
 
           <main
             role="main"

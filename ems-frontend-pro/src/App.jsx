@@ -11,6 +11,7 @@ import Register from "./Components/Register";
 import Homepage from "./Components/Homepage";
 import SideBar from "./Components/SideBar";
 import EmployeeSearch from "./Components/EmployeeSearch";
+import Login from "./Components/Login";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           {/* http://localhost:8080 */}
           <Route path="/" element={<Homepage />} />
           <Route path="/homepage" element={<Homepage />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<ListEmployeeComponent />} />
           <Route path="/employees" element={<ListEmployeeComponent />} />

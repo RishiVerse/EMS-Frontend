@@ -1,4 +1,6 @@
-/* styles.css or your preferred stylesheet */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 .footer {
   background-color: black;
