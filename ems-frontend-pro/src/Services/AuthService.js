@@ -1,14 +1,14 @@
 import axios from "axios";
 
-const AUTH_REST_API_BASE_URL = "http://localhost:9000/api/auth/login";
+const AUTH_REST_API_BASE_URL = "http://localhost:9000/api";
 //{"email":"johnndoe@example.com","password":"passwordn123"}
 export const registerAPICall = (registerObj) =>
-  axios.post(AUTH_REST_API_BASE_URL + "/register", registerObj);
+  axios.post(AUTH_REST_API_BASE_URL + "/auth/register", registerObj);
 
 export const LoginAPICall = (email, password) => {
   return axios
     .post(
-      AUTH_REST_API_BASE_URL,
+      AUTH_REST_API_BASE_URL + "/auth/login",
       {
         email: email,
         password: password,
