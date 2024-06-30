@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 function Homepage() {
   const navigation = useNavigate();
 
+  
   const manageEmployee = () => {
     navigation("/employees");
   };
@@ -11,38 +12,6 @@ function Homepage() {
     <>
       <div className="container-fluid bg-grey">
         <div className="row flex-grow-1">
-          {/* <nav className="col-md-2 d-none d-md-block bg-grey sidebar">
-            <div className="sidebar-sticky">
-              <ul className="nav flex-column">
-                <li className="nav-item">
-                  <a className="nav-link active" href="#">
-                    Dashboard <span className="sr-only">(current)</span>
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#" onClick={manageEmployee}>
-                    Manage Employee
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Profile
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Customers
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Reports
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </nav> */}
-
           <main
             role="main"
             className="col-md-9 ml-sm-auto col-lg-10 px-4 bg-grey"

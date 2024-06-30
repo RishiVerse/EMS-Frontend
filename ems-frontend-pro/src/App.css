@@ -5,3 +5,19 @@
   margin-left: 0px !important;
   margin-right: 0px !important;
 }
+
+.login {
+  padding-top: 100px !important;
+  width: 20px;
+  height: 40px;
+}
+
+.email {
+  width: 20px;
+  height: 40px;
+}
+
+.password {
+  width: 20px;
+  height: 40px;
+}

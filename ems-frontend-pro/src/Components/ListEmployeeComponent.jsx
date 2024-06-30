@@ -4,33 +4,45 @@ import { useNavigate } from "react-router-dom";
 
 const ListEmployeeComponent = () => {
   const [employees, setEmployees] = useState([]);
-  const navigation = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    getemp();
+    getEmp();
   }, []);
 
-  function getemp() {
-    listEmployee().then((response) => setEmployees(response.data));
-  }
+  const getEmp = async () => {
+    try {
+      const response = await listEmployee();
+      const data = response.data; // Access the data property
+      console.log("Fetched employees:", data); // Log the fetched data
+      if (Array.isArray(data)) {
+        setEmployees(data);
+      } else {
+        setEmployees([]);
+      }
+    } catch (error) {
+      console.error("Error in getEmp function:", error);
+      setEmployees([]);
+    }
+  };
 
-  function addNewEmployee() {
-    navigation("/add-employee");
-  }
+  const addNewEmployee = () => {
+    navigate("/add-employee");
+  };
 
-  function updateEmployee(id) {
-    navigation(`/update-employee/${id}`);
-  }
+  const updateEmployee = (id) => {
+    navigate(`/update-employee/${id}`);
+  };
 
-  function deleteEmployee(id) {
-    removeEmployee(id).then((response) => {
-      getemp();
+  const deleteEmployee = (id) => {
+    removeEmployee(id).then(() => {
+      getEmp();
     });
-  }
+  };
 
   return (
     <div className="container">
-      <h2 className="text-center"> List of Employee </h2>
+      <h2 className="text-center"> List of Employees </h2>
       <button
         type="button"
         className="btn btn-primary text-center"
@@ -42,15 +54,15 @@ const ListEmployeeComponent = () => {
       <table className="table table-bordered table-striped table-rounded">
         <thead>
           <tr>
-            <th>id</th>
-            <th>firstname</th>
-            <th>lastname</th>
-            <th>email</th>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          {employees &&
+          {employees.length > 0 ? (
             employees.map((emp) => (
               <tr key={emp.id}>
                 <td>{emp.id}</td>
@@ -64,9 +76,7 @@ const ListEmployeeComponent = () => {
                   >
                     Update
                   </button>
-
                   <span style={{ margin: "0 5px" }}></span>
-
                   <button
                     className="btn btn-danger text-center"
                     onClick={() => deleteEmployee(emp.id)}
@@ -75,7 +85,14 @@ const ListEmployeeComponent = () => {
                   </button>
                 </td>
               </tr>
-            ))}
+            ))
+          ) : (
+            <tr>
+              <td colSpan="5" className="text-center">
+                No employees found
+              </td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>

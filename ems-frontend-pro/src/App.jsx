@@ -12,6 +12,7 @@ import Homepage from "./Components/Homepage";
 import SideBar from "./Components/SideBar";
 import EmployeeSearch from "./Components/EmployeeSearch";
 import Login from "./Components/Login";
+import CreateTeam from "./Components/CreateTeam";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             path="/update-employee/:id"
             element={<AddEmployeeComponent />}
           />
+          <Route path="/createteam" element={<CreateTeam />} />
         </Routes>
         <FooterComponent />
       </BrowserRouter>
