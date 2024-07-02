@@ -5,27 +5,9 @@ const AUTH_REST_API_BASE_URL = "http://localhost:9000/api";
 export const registerAPICall = (registerObj) =>
   axios.post(AUTH_REST_API_BASE_URL + "/auth/register", registerObj);
 
-export const LoginAPICall = (email, password) => {
-  return axios
-    .post(
-      AUTH_REST_API_BASE_URL + "/auth/login",
-      {
-        email: email,
-        password: password,
-      },
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    )
-    .then((response) => {
-      return response.data;
-    })
-    .catch((error) => {
-      throw new Error("Network response was not ok: " + error.message);
-    });
-};
+export const LoginAPICall = (email, password) =>
+  axios.post(AUTH_REST_API_BASE_URL + "/auth/login", { email, password });
+
 export const storeToken = (token) => localStorage.setItem("token", token);
 
 export const getToken = () => localStorage.getItem("token");

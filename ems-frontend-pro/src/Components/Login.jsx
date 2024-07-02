@@ -7,16 +7,17 @@ import {
 import { useNavigate } from "react-router-dom";
 
 const LoginComponent = () => {
-  const [usernameOrEmail, setUsernameOrEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleLoginForm = (e) => {
     e.preventDefault();
-    if (usernameOrEmail === "" || password === "") {
+    console.log(username, password);
+    if (username === "" || password === "") {
       alert("please enter credentials");
     } else {
-      LoginAPICall(usernameOrEmail, password)
+      LoginAPICall(username, password)
         .then((response) => {
           console.log("Response data:", response);
 
@@ -24,9 +25,12 @@ const LoginComponent = () => {
           console.log("Generated token:", token);
           storeToken(token);
 
-          saveLoggedInUser(usernameOrEmail);
-          console.log("User saved:", usernameOrEmail);
-          navigate("/homepage");
+          saveLoggedInUser(username);
+
+          console.log("User saved:", username);
+
+          console.log(username);
+          navigate(`/home/${username}`);
         })
         .catch((error) => {
           console.error("Login error:", error);
@@ -44,7 +48,7 @@ const LoginComponent = () => {
               <input
                 type="email"
                 className="form-control"
-                onChange={(e) => setUsernameOrEmail(e.target.data)}
+                onChange={(e) => setUsername(e.target.value)}
               />
             </div>
             <div className="mb-3">
@@ -52,7 +56,7 @@ const LoginComponent = () => {
               <input
                 type="password"
                 className="form-control"
-                onChange={(e) => setPassword(e.target.data)}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             <div className="mb-3 form-check">
@@ -63,7 +67,7 @@ const LoginComponent = () => {
               <button
                 type="submit"
                 className="btn btn-primary"
-                onClick={(e) => handleLoginForm(e)}
+                onClick={handleLoginForm}
               >
                 Submit
               </button>

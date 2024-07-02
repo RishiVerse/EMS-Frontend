@@ -10,6 +10,9 @@ const AddEmployeeComponent = () => {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmailname] = useState("");
+  const [employeeId, setEmployeeId] = useState("");
+  const [address, setAddress] = useState("");
+  const [mobileNumber, setMobileNumber] = useState("");
 
   const navigate = useNavigate();
 
@@ -24,6 +27,15 @@ const AddEmployeeComponent = () => {
   function handleLasttName(e) {
     setLastname(e.target.value);
   }
+  function handleMobileNumber(e) {
+    setMobileNumber(e.target.value);
+  }
+  function handleId(e) {
+    setEmployeeId(e.target.value);
+  }
+  function handleAddress(e) {
+    setAddress(e.target.value);
+  }
 
   useEffect(() => {
     if (id) {
@@ -32,6 +44,9 @@ const AddEmployeeComponent = () => {
         setFirstname(response.data.firstname);
         setLastname(response.data.lastname);
         setEmailname(response.data.email);
+        setAddress(response.data.firstname);
+        setMobileNumber(response.data.lastname);
+        setEmployeeId(response.data.email);
       });
     }
   }, [id]);
@@ -39,7 +54,14 @@ const AddEmployeeComponent = () => {
   function submitEmployee(e) {
     e.preventDefault();
 
-    const employee = { firstname, lastname, email };
+    const employee = {
+      employeeId,
+      email,
+      firstname,
+      lastname,
+      address,
+      mobileNumber,
+    };
 
     if (id) {
       updateEmployee(id, employee).then((response) => {
@@ -96,6 +118,33 @@ const AddEmployeeComponent = () => {
                   value={email}
                   className="form-control"
                   onChange={handleEmail}
+                  required
+                ></input>
+                <label className="form-label">Employee Id</label>
+                <input
+                  type="text"
+                  name="employeeId"
+                  value={employeeId}
+                  className="form-control"
+                  onChange={handleId}
+                  required
+                ></input>
+                <label className="form-label">Mobile Number</label>
+                <input
+                  type="text"
+                  name="Mobile Number"
+                  value={mobileNumber}
+                  className="form-control"
+                  onChange={handleMobileNumber}
+                  required
+                ></input>
+                <label className="form-label">Address</label>
+                <input
+                  type="text"
+                  name="Address"
+                  value={address}
+                  className="form-control"
+                  onChange={handleAddress}
                   required
                 ></input>
               </div>

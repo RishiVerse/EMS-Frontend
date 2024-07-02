@@ -13,6 +13,7 @@ import SideBar from "./Components/SideBar";
 import EmployeeSearch from "./Components/EmployeeSearch";
 import Login from "./Components/Login";
 import CreateTeam from "./Components/CreateTeam";
+import SearchData from "./Components/SearchData";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
             path="/update-employee/:id"
             element={<AddEmployeeComponent />}
           />
+          <Route path="/searchEmployee/:typeData" element={<SearchData />} />
           <Route path="/createteam" element={<CreateTeam />} />
         </Routes>
         <FooterComponent />
